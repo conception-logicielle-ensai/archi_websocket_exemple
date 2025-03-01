@@ -13,7 +13,7 @@ sio = socketio.AsyncServer(cors_allowed_origins="*",async_mode='asgi')
 root_path = os.getenv("API_ROOT_PATH", "/") 
 app = FastAPI(root_path=root_path)
 
-app.mount("/", socketio.ASGIApp(sio))
+app.mount(root_path, socketio.ASGIApp(sio))
 
 utilisateurs = []
 
