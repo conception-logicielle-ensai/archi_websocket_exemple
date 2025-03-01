@@ -4,8 +4,8 @@ from router import router
 from dotenv import load_dotenv
 import os
 import uvicorn
-
-app = FastAPI()
+root_path = os.getenv("API_ROOT_PATH", "/") 
+app = FastAPI(root_path=root_path)
 app.include_router(router)
 
 def configure_logger():
