@@ -1,10 +1,7 @@
 import "./App.css";
-import UserList from "./components/UserList";
-import AddUserForm from "./components/AddUserForm";
-
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import Chat from "./components/Chat";
 import Environnement from "./components/Environnement";
+import MessageInput from "./components/MessageInput";
 function App() {
   return (
     <div>
