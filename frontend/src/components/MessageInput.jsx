@@ -29,7 +29,7 @@ export default function MessageInput({ onSendMessage }) {
           placeholder="Taper un message..."
         />
         <button onClick={handleSend} className="p-2 bg-blue-500 text-white rounded-r">
-          Send
+          Envoyer le message 
         </button>
       </div>
     </div>

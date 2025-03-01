@@ -26,8 +26,21 @@ async def deconnection_utilisateur(sid):
 @sio.on(WEB_SOCKET_MESSAGE_CANAL,namespace="/")
 def handle_message(sid, data):
       print(f"📩 Message reçu de {sid} : {data}")
+          # Ensure data is a dictionary
+      if isinstance(data, str):  
+        import json
+        try:
+            data = json.loads(data)  # Convert JSON string to dictionary
+        except json.JSONDecodeError as e:
+            print(f"❌ Erreur de parsing JSON: {e}")
+            return  # Stop execution if data is not valid JSON
+
+      if not isinstance(data, dict):  
+        print(f"❌ Mauvais format de données reçu: {data}")
+        return  
       msg = Reponse(**data)
-      sio.emit("message", f"🔁 Echo: {data}")  # Réponse à tous les clients
+      
+      sio.emit("message", f"🔁 Message reçu: {msg}")  # Réponse à tous les clients
 
 
 if __name__ == "__main__":

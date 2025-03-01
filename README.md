@@ -2,10 +2,9 @@
 
 Petit projet pour montrer comment installer une application type websocket / backend / frontend sur kube
 
-## La subtilité
+## L'accès au websocket
 
-La subtilité réside dans l'accès au websocket, qui n'est pas accessible en http et donc pas accessible via exposition ingress nginx. Il faut donc passer dans le cluster
-
+L'accès au websocket se fait comme une autre api, on peut donc les héberger de manière séparée ou ensemble. (voir ingresses)
 ## Les applis 
 
 Un backend qui se connecte au websocket

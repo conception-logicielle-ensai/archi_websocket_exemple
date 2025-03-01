@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [ws, setWs] = useState(null);
-  const wsUrl = import.meta.env.VITE_API_URL || "localhost:8000";
+  const wsUrl = import.meta.env.VITE_API_URL || "localhost:8080";
   useEffect(() => {
     const socket = new WebSocket(`wss://${wsUrl}`);
 
