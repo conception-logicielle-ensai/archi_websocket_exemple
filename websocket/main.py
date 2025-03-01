@@ -25,7 +25,7 @@ async def connection_utilisateur(sid):
 async def deconnection_utilisateur(sid):
       print(f"Client déconnecté : {sid}")
       utilisateurs.discard(sid)
-@sio.on(WEB_SOCKET_MESSAGE_CANAL,namespace="/")
+@sio.on(WEB_SOCKET_MESSAGE_CANAL,namespace=root_path)
 def handle_message(sid, data):
       print(f"📩 Message reçu de {sid} : {data}")
           # Ensure data is a dictionary
