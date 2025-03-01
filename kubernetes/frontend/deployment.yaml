@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontendwsock
+spec:
+  selector:
+    matchLabels:
+      app: frontendwsock
+  template:
+    metadata:
+      labels:
+        app: frontendwsock
+    spec:
+      containers:
+        - name: frontendwsock
+          image: ragatzino/frontend-demo-conception-logicielle:latest
+          resources:
+            limits:
+              memory: "200Mi"
+              cpu: "300m"
+          envFrom:
+            - configMapRef:
+                name: configuration-frontendwsock
+          ports:
+            - containerPort: 5173

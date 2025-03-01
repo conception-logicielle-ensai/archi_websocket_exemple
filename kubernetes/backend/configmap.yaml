@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configuration-backendwsock
+data:
+  WEBSOCKET_URL: https://websocketclogwsock.kub.sspcloud.fr
+  LOG_LEVEL: info

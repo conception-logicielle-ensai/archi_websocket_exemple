@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wsock
+spec:
+  selector:
+    matchLabels:
+      app: wsock
+  template:
+    metadata:
+      labels:
+        app: wsock
+    spec:
+      containers:
+        - name: wsock
+          image: ragatzino/wsock-archiexemplewsock:1.0.0
+          resources:
+            limits:
+              memory: "200Mi"
+              cpu: "300m"
+          envFrom:
+            - configMapRef:
+                name: configuration-wsock
+          ports:
+            - containerPort: 8080
