@@ -3,7 +3,8 @@ kind: ConfigMap
 metadata:
   name: configuration-frontendwsock
 data:
-  VITE_WS_URL: https://archi-exemple-wsock-websocketserver.kub.sspcloud.fr
+  VITE_WS_URL: https://archi-exemple-wsock.kub.sspcloud.fr/wsock
+  VITE_API_URL: https://archi-exemple-wsock.kub.sspcloud.fr/backend
   VITE_ENVIRONNEMENT: sspcloud-pd
-  __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS: "archi-exemple-wsock-frontend.kub.sspcloud.fr"
-  VITE_APP_BASE_URL: "/"
+  __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS: "archi-exemple-wsock.kub.sspcloud.fr"
+  VITE_APP_BASE_URL: "/frontend"

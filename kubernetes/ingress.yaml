@@ -1,0 +1,42 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wssockapp 
+  labels:
+    name: wssockapp
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/upgrade-http2: "true"
+    nginx.ingress.kubernetes.io/websocket-services: "wsock"
+spec:
+  tls:
+    - hosts:
+        - archi-exemple-wsock.kub.sspcloud.fr
+      secretName: ingress-tls
+  rules:
+    - host: archi-exemple-wsock.kub.sspcloud.fr
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/wsock"
+            backend:
+              service:
+                name: wsock 
+                port:
+                  number: 80
+          - pathType: Prefix
+            path: "/frontend"
+            backend:
+              service:
+                name: frontendwsock 
+                port:
+                  number: 80
+          - pathType: Prefix
+            path: "/backend"
+            backend:
+              service:
+                name: backendwsock 
+                port:
+                  number: 80
+         

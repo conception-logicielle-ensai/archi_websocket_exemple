@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: configuration-backendwsock
 data:
-  WEBSOCKET_URL: https://archi-exemple-wsock-websocketserver.kub.sspcloud.fr
+  WEBSOCKET_URL: https://archi-exemple-wsock.kub.sspcloud.fr/wsock
   LOG_LEVEL: info
-  API_ROOT_PATH: /
+  API_ROOT_PATH: /backend
