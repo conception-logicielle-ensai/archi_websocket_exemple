@@ -1,7 +1,6 @@
 import "./App.css";
 import Chat from "./components/Chat";
 import Environnement from "./components/Environnement";
-import MessageInput from "./components/MessageInput";
 function App() {
   return (
     <div>
@@ -9,15 +8,10 @@ function App() {
         Bienvenu sur le chat
       </h1>
       <div>
-      <h2>
-        Envoyer un message
-      </h2>
-      <MessageInput/>
-      </div>
-      <div>
       <Chat/>
       </div>
       <footer>
+        <h2>Variables d'environnement / Configuration</h2>
         <Environnement />
       </footer>
       </div>
