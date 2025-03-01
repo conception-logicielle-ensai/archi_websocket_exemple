@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: frontendwsock
-          image: ragatzino/frontend-demo-conception-logicielle:latest
+          image: ragatzino/frontend-archiexemplewsock:1.0.0
           resources:
             limits:
               memory: "200Mi"
