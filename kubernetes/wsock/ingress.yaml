@@ -13,7 +13,7 @@ metadata:
 
 spec:
   rules:
-    - host: archi-exemple-wsock.kub.sspcloud.fr
+    - host: archi-exemple-wsock-websocketserver.kub.sspcloud.fr
       http:
         paths:
           - pathType: Prefix

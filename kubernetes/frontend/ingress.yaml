@@ -6,7 +6,7 @@ metadata:
     name: frontendwsock 
 spec:
   rules:
-    - host: archi-exemple-frontendwsock.kub.sspcloud.fr
+    - host: archi-exemple-wsock-frontend.kub.sspcloud.fr
       http:
         paths:
           - pathType: Prefix
