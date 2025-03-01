@@ -8,7 +8,7 @@ import uvicorn
 from core_archi_websocket_kube_conceplog.constants import WEB_SOCKET_MESSAGE_CANAL
 from core_archi_websocket_kube_conceplog.reponse import Reponse
 import os
-sio = socketio.AsyncServer(cors_allowed_origins="*",async_mode='asgi')
+sio = socketio.AsyncServer(cors_allowed_origins="*",async_mode='asgi',namespaces="*")
 # Uvicorn est un serveur asgi donc il faut veiller a bien mettre un async server
 root_path = os.getenv("API_ROOT_PATH", "/") 
 app = FastAPI(root_path=root_path)
