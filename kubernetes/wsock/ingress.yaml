@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wsock
+  labels:
+    name: wsock
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-http-version: "1.1"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/websocket-services: "websocket-service"
+
+spec:
+  rules:
+    - host: archi-exemple-wsock.kub.sspcloud.fr
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/wsock"
+            backend:
+              service:
+                name: wsock 
+                port:
+                  number: 80
