@@ -1,37 +1,40 @@
 import { useEffect, useState } from "react";
 import MessageInput from "./MessageInput";
+import { io } from "socket.io-client";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
-  const [ws, setWs] = useState(null);
+  const [socket, setSocket] = useState(null);
   const wsUrl = import.meta.env.VITE_WS_URL || "wss://localhost:8080";
   useEffect(() => {
-    const socket = new WebSocket(`${wsUrl}`);
-
-    socket.addEventListener("open", () => {
-      console.log("Connected to WebSocket");
+    const socketInstance = io(wsUrl, {
+      transports: ["websocket"], // Force WebSocket uniquement
     });
 
-    socket.addEventListener("message", (event) => {
-      setMessages((prev) => [...prev, event.data]);
+    socketInstance.on("connect", () => {
+      console.log("✅ Connecté au WebSocket");
     });
 
-    socket.addEventListener("close", () => {
-      console.log("WebSocket disconnected");
+    socketInstance.on("message", (data) => {
+      setMessages((prev) => [...prev, data]);
     });
 
-    setWs(socket);
+    socketInstance.on("disconnect", () => {
+      console.log("❌ WebSocket déconnecté");
+    });
+
+    setSocket(socketInstance);
 
     return () => {
-      socket.close();
+      socketInstance.disconnect(); // Déconnexion propre
     };
   }, []);
 
   const sendMessage = (user, input) => {
-    if (ws && input.trim()) {
-      const message = { user, reponse: input };
-      ws.send(JSON.stringify(message));
-    }
+  if (socket && input.trim()) {
+    const message = { user, reponse: input };
+    socket.send(JSON.stringify(message)); // Envoie direct avec WebSocket natif
+  }
   };
 
   return (

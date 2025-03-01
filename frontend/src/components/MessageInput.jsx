@@ -28,7 +28,7 @@ export default function MessageInput({ onSendMessage }) {
           className="flex-1 p-2 border rounded-l"
           placeholder="Taper un message..."
         />
-        <button onClick={handleSend} className="p-2 bg-blue-500 text-white rounded-r">
+        <button onClick={() => handleSend(user,input)} className="p-2 bg-blue-500 text-white rounded-r">
           Envoyer le message 
         </button>
       </div>
