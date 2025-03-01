@@ -1,9 +1,5 @@
 import "./App.css";
-import UserList from "./components/UserList";
-import AddUserForm from "./components/AddUserForm";
-
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import Chat from "./components/Chat";
 import Environnement from "./components/Environnement";
 function App() {
   return (
@@ -12,15 +8,10 @@ function App() {
         Bienvenu sur le chat
       </h1>
       <div>
-      <h2>
-        Envoyer un message
-      </h2>
-      <MessageInput/>
-      </div>
-      <div>
       <Chat/>
       </div>
       <footer>
+        <h2>Variables d'environnement / Configuration</h2>
         <Environnement />
       </footer>
       </div>
