@@ -10,7 +10,7 @@ export default function Chat() {
   useEffect(() => {
     const socketInstance = io(wsUrl, {
       transports: ["websocket"], // Force WebSocket uniquement
-      path: "/mon-subpath/socket.io/"
+      path: wsSubpath
     });
 
     socketInstance.on("connect", () => {
