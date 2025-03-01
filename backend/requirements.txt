@@ -1,0 +1,6 @@
+python-socketio
+fastapi
+uvicorn
+python-dotenv
+requests # implicite pour le client io (c'était pas clair)
+core-archi-websocket-kube-conceplog
