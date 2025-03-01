@@ -5,3 +5,4 @@ metadata:
 data:
   WEBSOCKET_URL: https://archi-exemple-wsock.kub.sspcloud.fr/wsock
   LOG_LEVEL: info
+  API_ROOT_PATH: /backend

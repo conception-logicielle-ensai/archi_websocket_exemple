@@ -4,3 +4,4 @@ metadata:
   name: configuration-wsock
 data:
   LOG_LEVEL: info
+  API_ROOT_PATH: /wsock
