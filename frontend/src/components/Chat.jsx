@@ -6,9 +6,11 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [socket, setSocket] = useState(null);
   const wsUrl = import.meta.env.VITE_WS_URL || "wss://localhost:8080";
+  const wsSubpath = import.meta.env.VITE_WS_SUBPATH || "/socket.io/";
   useEffect(() => {
     const socketInstance = io(wsUrl, {
       transports: ["websocket"], // Force WebSocket uniquement
+      path: "/mon-subpath/socket.io/"
     });
 
     socketInstance.on("connect", () => {
