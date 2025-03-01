@@ -4,9 +4,9 @@ import MessageInput from "./MessageInput";
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [ws, setWs] = useState(null);
-  const wsUrl = import.meta.env.VITE_WS_URL || "localhost:8080";
+  const wsUrl = import.meta.env.VITE_WS_URL || "wss://localhost:8080";
   useEffect(() => {
-    const socket = new WebSocket(`ws://${wsUrl}`);
+    const socket = new WebSocket(`${wsUrl}`);
 
     socket.addEventListener("open", () => {
       console.log("Connected to WebSocket");
