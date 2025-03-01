@@ -1,0 +1,5 @@
+python-socketio
+fastapi
+uvicorn
+python-dotenv
+core-archi-websocket-kube-conceplog
