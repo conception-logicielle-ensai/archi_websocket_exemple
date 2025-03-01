@@ -6,7 +6,7 @@ export default function Chat() {
   const [ws, setWs] = useState(null);
   const wsUrl = import.meta.env.VITE_WS_URL || "localhost:8080";
   useEffect(() => {
-    const socket = new WebSocket(`wss://${wsUrl}`);
+    const socket = new WebSocket(`ws://${wsUrl}`);
 
     socket.addEventListener("open", () => {
       console.log("Connected to WebSocket");
