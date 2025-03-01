@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from backend.service.socket_client import SocketClient
+from service.socket_client import SocketClient
 from core_archi_websocket_kube_conceplog.reponse import Reponse
 
 
